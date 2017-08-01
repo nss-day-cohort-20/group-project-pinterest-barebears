@@ -1,6 +1,7 @@
 'use strict';
 
-pinApp.controller("NavController", function($scope, $window, UserFactory) {
+pinApp.controller("NavController", function($scope, $window, FilterFactory, UserFactory) {
+
 
   // $scope.searchText = FilterFactory;
   $scope.isLoggedIn = false;

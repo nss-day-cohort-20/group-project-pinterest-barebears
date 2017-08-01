@@ -28,7 +28,7 @@ pinApp.config( ($routeProvider) => {
 		})
 		.when('/boards', {
 			templateUrl: 'partials/boards.html',
-			controller: 'BoardController'
+			controller: 'BoardsController'
 		})
 		.otherwise('/');
 });

@@ -11,13 +11,28 @@ pinApp.controller("BoardsController", function($scope, $window, BoardFactory, Us
     fetchBoards();
   });
 
+ $scope.newBoardItem = {
+    title: "",
+    url: "",
+    uid: ""
+  };
+
+  $scope.saveBoardItem = () => {
+    $scope.newBoardItem.uid = UserFactory.getUser();
+    BoardFactory.postNewBoard($scope.newBoardItem)
+    .then( (data) => {
+      console.log("new board data", data);
+      fetchBoards();
+    });
+  };
+
   function fetchBoards() {
     let boardArr = [];
     console.log("Fetch called");
     BoardFactory.getBoards(currentUser)
     .then( (boardList) => {
       console.log("board Data", boardList);
-      let boardData = boardList.data;
+      let boardData = boardList;
       Object.keys(boardData).forEach( (key) => {
         boardData[key].id = key;
         boardArr.push(boardData[key]);

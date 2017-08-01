@@ -5,9 +5,9 @@ pinApp.factory("BoardFactory", function($q, $http, FirebaseUrl) {
   let getBoards = (userId) => {
     console.log("userId", userId);
     return $q( (resolve, reject) => {
-      $http.get(`${FirebaseUrl}todos.json?orderBy="uid"&equalTo="${userId}"`)
+      $http.get(`${FirebaseUrl}boards.json?orderBy="uid"&equalTo="${userId}"`)
       .then( (boardData) => {
-        resolve(boardData);
+        resolve(boardData.data);
       })
       .catch( (err) => {
         console.log("oops", err);
@@ -18,7 +18,7 @@ pinApp.factory("BoardFactory", function($q, $http, FirebaseUrl) {
 
   let postNewBoard = (newBoard) => {
     return $q( (resolve, reject) => {
-      $http.post(`${FirebaseUrl}todos.json`,
+      $http.post(`${FirebaseUrl}boards.json`,
         angular.toJson(newBoard))
       .then( (newBoardData) => {
         resolve(newBoardData);
