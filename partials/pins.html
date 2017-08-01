@@ -1,12 +1,12 @@
 <h1>My Pins</h1>
-<div class="row" ng-repeat="pin in pins">
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
 	Add a Pin
 	</button>
+	<div class="row" ng-repeat="pin in pins">
 	<div class="pin">
 		<button class="delete-btn" ng-click="deletePin(getPinId())"></button>
-		<img src="{{pin.url}}">
+		<img ng-src="{{pin.url}}">
 		<h2>{{pin.title}}</h2>
 	</div>
 	<!-- Modal -->
@@ -19,15 +19,15 @@
 				</div>
 				<div class="modal-body">
 					<div>
-						Pin Title: <input type="text">
+						Pin Title: <input type="text" ng-model="pinItem.title">
 					</div>
 					<div>
-						Image URL: <input type="text">
+						Image URL: <input type="text" ng-model="pinItem.url">
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary" ng-click="addPin()">Save changes</button>
+					<button type="button" class="btn btn-primary" ng-click="addPin()" data-dismiss="modal">Save changes</button>
 				</div>
 			</div>
 		</div>
