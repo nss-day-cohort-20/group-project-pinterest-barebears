@@ -6,8 +6,8 @@ pinApp.factory("BoardFactory", function($q, $http, FirebaseUrl) {
     console.log("userId", userId);
     return $q( (resolve, reject) => {
       $http.get(`${FirebaseUrl}todos.json?orderBy="uid"&equalTo="${userId}"`)
-      .then( (todoData) => {
-        resolve(todoData);
+      .then( (boardData) => {
+        resolve(boardData);
       })
       .catch( (err) => {
         console.log("oops", err);
@@ -16,12 +16,12 @@ pinApp.factory("BoardFactory", function($q, $http, FirebaseUrl) {
     });
   };
 
-  let postNewBoard = (newItem) => {
+  let postNewBoard = (newBoard) => {
     return $q( (resolve, reject) => {
       $http.post(`${FirebaseUrl}todos.json`,
-        angular.toJson(newItem))
-      .then( (newItemData) => {
-        resolve(newItemData);
+        angular.toJson(newBoard))
+      .then( (newBoardData) => {
+        resolve(newBoardData);
       })
       .catch( (err) => {
         reject(err);
@@ -29,10 +29,10 @@ pinApp.factory("BoardFactory", function($q, $http, FirebaseUrl) {
     });
   };
 
-  let deleteBoard = (todoId) => {
+  let deleteBoard = (boardId) => {
     return $q( (resolve, reject) => {
-      if (todoId) {
-        $http.delete(`${FirebaseUrl}todos/${todoId}.json`)
+      if (boardId) {
+        $http.delete(`${FirebaseUrl}boards/${boardId}.json`)
         .then( (data) => {
           resolve(data);
         })
