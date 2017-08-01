@@ -1,4 +1,33 @@
-<div ng-contorller="NavController">
-	<button class="btn btn-info" ng-click="login()">Log in</button>
-	<button class="btn btn-info" ng-click="logout()">Log out</button>
-</div>
+<nav class="navbar navbar-default" ng-controller="NavController">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/">Todo App</a>
+    </div>
+    <!-- search -->
+    <div class="col-xs-4 searchBox" ng-show="isLoggedIn">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </span>
+        <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText.searchTerm">
+      </div>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-show="!isLoggedIn"><a ng-href="#!/login">Login</a></li>
+        <li ng-show="isLoggedIn"><a ng-href="#!/pin/new">New Pin</a></li>
+        <li ng-show="isLoggedIn"><a ng-href="#!/pins/view">All Pins</a></li>
+        <li ng-show="isLoggedIn"><a ng-href="#!/board/new">New Board</a></li>
+        <li ng-show="isLoggedIn"><a ng-href="#!/boards/view">All Boards</a></li>
+        <li ng-show="isLoggedIn"><a ng-href="#!/logout" ng-click="logout()">Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

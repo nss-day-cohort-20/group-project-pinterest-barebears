@@ -4,8 +4,8 @@ pinApp.controller("AddBoardController", function($scope, $window, BoardFactory, 
 
   // $scope.formTitle = "Add New Task";
   $scope.boardItem = {
-    title: "";
-    url: "";
+    title: "",
+    url: "",
     uid: UserFactory.getUser()
   };
 

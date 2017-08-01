@@ -2,12 +2,13 @@
 <html>
 <head>
 	<title>Pinterest</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body ng-app="PinApp">
 
-	<div ng-include="partials/navbar.html"></div>
+	<div ng-include="'partials/navbar.html'"></div>
 
 	<div ng-view></div>
 
@@ -25,8 +26,10 @@
 	<script src="app/values/fb-creds.js"></script>
 	<script src="app/factories/user-factory.js"></script>
 	<script src="app/factories/pin-factory.js"></script>
+	<!-- <script src="app/factories/filter-factory.js"></script> -->
 	<!-- Controllers -->
 	<script src="app/controllers/user-controller.js"></script>
+	<script src="app/controllers/nav-controller.js"></script>
 	<script src="app/controllers/pins-controller.js"></script>
 
 </body>
