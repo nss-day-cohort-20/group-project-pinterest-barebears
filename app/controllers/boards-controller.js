@@ -29,6 +29,10 @@ pinApp.controller("BoardsController", function($scope, $window, BoardFactory, Us
     });
   }
 
+  $scope.loadPins = (boardId) => {
+    $window.location.href = `!#pins/${boardId}`;
+  };
+
   $scope.deleteBoard = (boardId) => {
     console.log("delete called", boardId);
     BoardFactory.deleteBoard(boardId)

@@ -22,7 +22,7 @@ pinApp.config( ($routeProvider) => {
 			templateUrl: 'partials/login.html',
 			controller: 'UserController'
 		})
-		.when('/pins', {
+		.when('/pins/:boardid', {
 			templateUrl: 'partials/pins.html',
 			controller: 'PinsController'
 		})
