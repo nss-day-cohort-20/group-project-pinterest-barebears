@@ -1,0 +1,31 @@
+.boardsContainer {
+	text-align: center;
+}
+
+.boardHeader {
+	padding-bottom: 5%;
+	border-bottom: 2px solid black;
+}
+
+.boardImage {
+	min-width: 200px;
+	min-height: 200px;
+	max-width: 200px;
+	max-height: 200px;
+}
+
+.boardCard {
+	margin-top: 2%;
+	border: 3 px solid black;
+	color: red;
+}
+
+.cardColumn {
+	text-align: center;
+}
+
+
+.addBoardCard {
+margin-top: 3%;
+border: 2px solid black;
+}
