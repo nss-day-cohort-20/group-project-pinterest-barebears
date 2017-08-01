@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 let pinApp = angular.module("PinApp", ["ngRoute"])
 .constant("FirebaseUrl", "https://barebearspinterest.firebaseio.com/");
@@ -25,6 +25,10 @@ pinApp.config( ($routeProvider) => {
 		.when('/pins', {
 			templateUrl: 'partials/pins.html',
 			controller: 'PinsController'
+		})
+		.when('/boards', {
+			templateUrl: 'partials/boards.html',
+			controller: 'BoardController'
 		})
 		.otherwise('/');
 });
