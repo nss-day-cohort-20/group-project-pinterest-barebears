@@ -6,7 +6,6 @@ pinApp.controller("BoardsController", function($scope, $window, BoardFactory, Us
 
   UserFactory.isAuthenticated()
   .then( (user) => {
-    console.log("user status", user);
     currentUser = UserFactory.getUser();
     fetchBoards();
   });
@@ -21,17 +20,14 @@ pinApp.controller("BoardsController", function($scope, $window, BoardFactory, Us
     $scope.newBoardItem.uid = UserFactory.getUser();
     BoardFactory.postNewBoard($scope.newBoardItem)
     .then( (data) => {
-      console.log("new board data", data);
       fetchBoards();
     });
   };
 
   function fetchBoards() {
     let boardArr = [];
-    console.log("Fetch called");
     BoardFactory.getBoards(currentUser)
     .then( (boardList) => {
-      console.log("board Data", boardList);
       let boardData = boardList;
       Object.keys(boardData).forEach( (key) => {
         boardData[key].id = key;
@@ -49,10 +45,8 @@ pinApp.controller("BoardsController", function($scope, $window, BoardFactory, Us
   };
 
   $scope.deleteBoard = (boardId) => {
-    console.log("delete called", boardId);
     BoardFactory.deleteBoard(boardId)
     .then( (data) => {
-      console.log("removed board", data);
       fetchBoards(currentUser);
     });
   };
