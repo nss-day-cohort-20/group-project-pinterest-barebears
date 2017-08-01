@@ -7,6 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <a class="navbar-brand" href="#/">Pin App</a>
     </div>
     <!-- search -->
     <div class="row">
@@ -22,11 +23,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li ng-show="!isLoggedIn"><a ng-href="#!/login">Login</a></li>
-        <li ng-show="isLoggedIn"><a ng-href="#!/pin/new">New Pin</a></li>
-        <li ng-show="isLoggedIn"><a ng-href="#!/pins/view">All Pins</a></li>
-        <li ng-show="isLoggedIn"><a ng-href="#!/board/new">New Board</a></li>
-        <li ng-show="isLoggedIn"><a ng-href="#!/boards/view">All Boards</a></li>
+        <li ng-show="!isLoggedIn"><a ng-href="#!/">Login</a></li>
+        <li ng-show="isLoggedIn"><a ng-href="#!/boards">Boards</a></li>
         <li ng-show="isLoggedIn"><a ng-href="#!/logout" ng-click="logout()">Logout</a></li>
       </ul>
     </div>
