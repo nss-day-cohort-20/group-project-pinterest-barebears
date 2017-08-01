@@ -2,7 +2,8 @@
 
 pinApp.controller("NavController", function($scope, $window, FilterFactory, UserFactory) {
 
-  $scope.searchText = FilterFactory;
+
+  // $scope.searchText = FilterFactory;
   $scope.isLoggedIn = false;
 
   // Listen for changes to auth state; If logged in, change isLoggedIn to true so
@@ -24,6 +25,7 @@ pinApp.controller("NavController", function($scope, $window, FilterFactory, User
   $scope.logout = () => {
     console.log("logout clicked");
     UserFactory.logoutUser();
+    $window.location.href = '#!/';
   };
 
 });
