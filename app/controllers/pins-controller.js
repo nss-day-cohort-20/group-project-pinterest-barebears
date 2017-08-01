@@ -57,12 +57,4 @@ pinApp.controller('PinsController', function($scope, PinFactory, $window, UserFa
 			fetchPins($routeParams.boardid);
 		});
 	};
-
-	// $scope.getPinId = (pin) => {
-	// 	let pinId = Object.keys(pin);
-	// 	return pinId;
-	// };
-
-
-	// $scope.test = 'this is a test message';
 });
