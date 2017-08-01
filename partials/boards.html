@@ -8,7 +8,7 @@
 </div>
 <div class="col-md-4 boardCard" ng-repeat="board in boards">
 <div class="boardTitle">{{board.title}}</div>
-<img class="boardImage" ng-src="{{board.url}}">
+<img class="boardImage" ng-click="loadPins(board.id)" ng-src="{{board.url}}">
 </div>
 </div>
 
