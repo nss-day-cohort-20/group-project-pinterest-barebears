@@ -1,8 +1,9 @@
 'use strict';
 
-todoApp.controller("NavController", function($scope, $window, FilterFactory, UserFactory) {
+pinApp.controller("NavController", function($scope, $window, FilterFactory, UserFactory) {
 
-  $scope.searchText = FilterFactory;
+
+  // $scope.searchText = FilterFactory;
   $scope.isLoggedIn = false;
 
   // Listen for changes to auth state; If logged in, change isLoggedIn to true so
@@ -24,6 +25,7 @@ todoApp.controller("NavController", function($scope, $window, FilterFactory, Use
   $scope.logout = () => {
     console.log("logout clicked");
     UserFactory.logoutUser();
+    $window.location.href = '#!/';
   };
 
 });

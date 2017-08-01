@@ -28,6 +28,10 @@ pinApp.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
 	  });
 	};
 
+	let getUser = () => {
+    return currentUser;
+  };
+
 	let loginUser = () => {
 		return $q( (resolve, reject) => {
 			let provider = new firebase.auth.GoogleAuthProvider();
@@ -49,6 +53,6 @@ pinApp.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
 	  });
 	};
 
-	return {isAuthenticated, loginUser, logoutUser};
+	return {isAuthenticated, getUser, loginUser, logoutUser};
 
 });
