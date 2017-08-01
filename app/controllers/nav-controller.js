@@ -1,6 +1,6 @@
 'use strict';
 
-pinApp.controller("NavController", function($scope, $window, FilterFactory, UserFactory) {
+pinApp.controller("NavController", function($scope, $window, UserFactory) {
 
 
   // $scope.searchText = FilterFactory;

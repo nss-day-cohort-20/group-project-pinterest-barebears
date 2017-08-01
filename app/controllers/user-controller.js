@@ -6,7 +6,7 @@ pinApp.controller('UserController', function($scope, $window, UserFactory){
 		UserFactory.loginUser()
 		.then( (userData) => {
 		  console.log("userData", userData);
-		  $window.location.href = '#!/pins';
+		  $window.location.href = '#!/boards';
 		});
 	};
 
