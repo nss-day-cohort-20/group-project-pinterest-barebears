@@ -3,7 +3,6 @@
 pinApp.factory("BoardFactory", function($q, $http, FirebaseUrl) {
 
   let getBoards = (userId) => {
-    console.log("userId", userId);
     return $q( (resolve, reject) => {
       $http.get(`${FirebaseUrl}boards.json?orderBy="uid"&equalTo="${userId}"`)
       .then( (boardData) => {

@@ -6,9 +6,8 @@ pinApp.controller('PinsController', function($scope, PinFactory, $window, UserFa
 
 	UserFactory.isAuthenticated()
 	.then( (user) => {
-		console.log("user status", user);
 		currentUser = UserFactory.getUser();
-		fetchPins();
+		fetchPins($routeParams.boardid);
 	});
 
 	$scope.pinItem = {
@@ -24,20 +23,20 @@ pinApp.controller('PinsController', function($scope, PinFactory, $window, UserFa
 		.then( (pinData) => {
 			$scope.pinItem.title = "";
 			$scope.pinItem.url = "";
-			fetchPins();
+			fetchPins($routeParams.boardid);
 			console.log(pinData);
 		});
 	};
 
-
+	$scope.getBoardId = () => {
+		let idOfBoard = $routeParams.boardid;
+		return idOfBoard;
+	};
 
 	function fetchPins(boardId) {
-		if (boardId == $routeParams.boardId){
 			let pinArr = [];
-			console.log("Fetch called");
 			PinFactory.getPins(currentUser)
 			.then( (pinList) => {
-				console.log("board Data", pinList);
 				let pinData = pinList;
 				Object.keys(pinData).forEach( (key) => {
 					pinData[key].id = key;
@@ -49,18 +48,20 @@ pinApp.controller('PinsController', function($scope, PinFactory, $window, UserFa
 				console.log("error!", err);
 			});
 		}
-	}
 
-	$scope.deletePin = () => {
-		PinFactory.deletePin = () => {
-
-		};
+	$scope.deletePin = (pinId) => {
+		console.log("pin id?", pinId);
+		PinFactory.deletePin(pinId)
+		.then( (data) => {
+			console.log("data", data);
+			fetchPins($routeParams.boardid);
+		});
 	};
 
-	$scope.getPinId = (pin) => {
-		let pinId = Object.keys(pin);
-		return pinId;
-	};
+	// $scope.getPinId = (pin) => {
+	// 	let pinId = Object.keys(pin);
+	// 	return pinId;
+	// };
 
 
 	// $scope.test = 'this is a test message';

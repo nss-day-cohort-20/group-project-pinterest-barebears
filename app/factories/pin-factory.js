@@ -4,7 +4,6 @@ pinApp.factory('PinFactory', function($q, $http, FirebaseUrl, FBCreds) {
 
 //get pins associated both with user, need to sort by board id in the controller
  let getPins = (userId)=>{
-    console.log ("userId", userId);
     return $q ((resolve, reject)=>{
         $http.get(`${FirebaseUrl}pins.json?orderBy="uid"&equalTo="${userId}"`)
         .then((pinsData)=>{
