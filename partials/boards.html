@@ -1,16 +1,19 @@
+<div class=" container boardsContainer">
+<div class="boardHeader">
 <h1>My boards</h1>
-<div class="row">
-<div class="col-md-3" ng-repeat="board in boards">
-{{board.title}}
-<img ng-src="{{board.url}}">
+</div>
+<div class="row cardColumn">
+<div class="col-md-4 addBoardCard">
+<img ng-src="addbutton.png" class="addBoard " data-toggle="modal" data-target="#myModal">
+</div>
+<div class="col-md-4 boardCard" ng-repeat="board in boards">
+<div class="boardTitle">{{board.title}}</div>
+<img class="boardImage" ng-src="{{board.url}}">
 </div>
 </div>
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add a board
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -34,4 +37,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
