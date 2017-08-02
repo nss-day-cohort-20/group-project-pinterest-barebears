@@ -1,6 +1,6 @@
 "use strict";
 
-let pinApp = angular.module("PinApp", ["ngRoute"])
+let pinApp = angular.module("PinApp", ["ngRoute", "wu.masonry"])
 .constant("FirebaseUrl", "https://barebearspinterest.firebaseio.com/");
 
 let isAuth = (UserFactory) => {
