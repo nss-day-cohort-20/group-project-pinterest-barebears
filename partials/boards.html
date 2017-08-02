@@ -1,42 +1,42 @@
 <div class=" container boardsContainer">
-<div class="boardHeader">
-<h1>My boards</h1>
-</div>
-<div class="row cardColumn">
-<div class="col-md-4 addBoardCard">
-<img ng-src="addbutton.png" class="addBoard " data-toggle="modal" data-target="#myModal">
-</div>
-<div class="col-md-4 boardCard" ng-repeat="board in boards">
-<button class="delete-btn" ng-click="deleteBoard(board.id)">X</button>
-<div class="boardTitle">{{board.title}}</div>
-<img class="boardImage" ng-click="loadPins(board.id)" ng-src="{{board.url}}">
-</div>
-</div>
+  <div class="boardHeader">
+  <h1>My boards</h1>
+  </div>
+  <div class="row cardColumn">
+    <div class="col-md-4 addBoardCard">
+      <img ng-src="addbutton.png" class="addBoard " data-toggle="modal" data-target="#myModal">
+    </div>
+    <div class="col-md-4 boardCard" ng-repeat="board in boards | filter: {title: searchText.searchTerm}">
+      <button class="delete-btn" ng-click="deleteBoard(board.id)">X</button>
+      <div class="boardTitle">{{board.title}}</div>
+      <img class="boardImage" ng-click="loadPins(board.id)" ng-src="{{board.url}}">
+    </div>
+  </div>
 
 
-<!-- Button trigger modal -->
+  <!-- Button trigger modal -->
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <div>
-						Board Title: <input type="text" ng-model="newBoardItem.title">
-					</div>
-					<div>
-						Image URL: <input type="text" ng-model="newBoardItem.url">
-					</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="saveBoardItem()" data-dismiss="modal">Save changes</button>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div>
+  					Board Title: <input type="text" ng-model="newBoardItem.title">
+  				</div>
+  				<div>
+  					Image URL: <input type="text" ng-model="newBoardItem.url">
+  				</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="saveBoardItem()" data-dismiss="modal">Save changes</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>

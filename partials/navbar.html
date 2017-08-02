@@ -1,33 +1,24 @@
-<nav class="navbar navbar-default" ng-controller="NavController">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#/">Pin App</a>
-    </div>
-    <!-- search -->
-    <div class="row">
-    <a class="navbar-brand col-xs-6" href="#/">Pinterest</a>
-    <div class="col-xs-6 searchBox" ng-show="isLoggedIn">
-      <div class="input-group">
-        <span class="input-group-btn">
-          <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </span>
-        <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText.searchTerm">
-      </div>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-show="!isLoggedIn"><a ng-href="#!/">Login</a></li>
-        <li ng-show="isLoggedIn"><a ng-href="#!/boards">Boards</a></li>
-        <li ng-show="isLoggedIn"><a ng-href="#!/logout" ng-click="logout()">Logout</a></li>
-      </ul>
-    </div>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" ng-controller="NavController">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#!/">PinApp</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" ng-show="isLoggedIn">
+        <a class="nav-link" ng-href="#!/boards">My Boards</a>
+      </li>
+      <li class="nav-item" ng-show="!isLoggedIn">
+        <a class="nav-link" ng-href="#!/">Login</a>
+      </li>
+      <li class="nav-item" ng-show="isLoggedIn">
+        <a class="nav-link" ng-href="#!/logout" ng-click="logout()">Logout</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" ng-model="searchText.searchTerm">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
 </nav>
