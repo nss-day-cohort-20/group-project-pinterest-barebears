@@ -1,8 +1,8 @@
-.boardsContainer {
+.boardsContainer, .pinContainer {
 	text-align: center;
 }
 
-.boardHeader {
+.boardHeader, .pinHeader {
 	padding-bottom: 5%;
 	border-bottom: 2px solid black;
 }
@@ -14,8 +14,13 @@
 	max-height: 200px;
 }
 
+.pinImage {
+	max-width: 200px;
+	max-height: 200px;
+}
 
-.boardCard {
+
+.boardCard, .pinCard {
 	margin-top: 2%;
 	border: 3 px solid black;
 	color: red;
@@ -30,4 +35,8 @@
 .addBoardCard {
 margin-top: 3%;
 border: 2px solid black;
+}
+
+.pin img {
+	max-width: 400px;
 }
