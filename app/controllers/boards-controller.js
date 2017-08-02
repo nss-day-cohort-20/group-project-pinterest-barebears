@@ -1,6 +1,6 @@
 'use strict';
 
-pinApp.controller("BoardsController", function($scope, $window, BoardFactory, UserFactory, PinFactory) {
+pinApp.controller("BoardsController", function($scope, $window, BoardFactory, UserFactory, PinFactory, FilterFactory) {
 
   let currentUser = null;
 
@@ -9,6 +9,9 @@ pinApp.controller("BoardsController", function($scope, $window, BoardFactory, Us
     currentUser = UserFactory.getUser();
     fetchBoards();
   });
+
+  $scope.searchText = FilterFactory;
+
 
  $scope.newBoardItem = {
     title: "",

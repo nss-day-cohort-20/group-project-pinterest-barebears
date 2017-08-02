@@ -1,6 +1,6 @@
 'use strict';
 
-pinApp.controller('PinsController', function($scope, PinFactory, $window, UserFactory, $routeParams){
+pinApp.controller('PinsController', function($scope, PinFactory, $window, UserFactory, $routeParams, FilterFactory){
 
 	let currentUser = null;
 
@@ -9,6 +9,8 @@ pinApp.controller('PinsController', function($scope, PinFactory, $window, UserFa
 		currentUser = UserFactory.getUser();
 		fetchPins($routeParams.boardid);
 	});
+
+  $scope.searchText = FilterFactory;
 
 	$scope.pinItem = {
 		title: "",
