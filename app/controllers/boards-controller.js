@@ -1,6 +1,6 @@
 'use strict';
 
-pinApp.controller("BoardsController", function($scope, $window, BoardFactory, UserFactory) {
+pinApp.controller("BoardsController", function($scope, $window, BoardFactory, UserFactory, PinFactory) {
 
   let currentUser = null;
 
@@ -45,9 +45,26 @@ pinApp.controller("BoardsController", function($scope, $window, BoardFactory, Us
   };
 
   $scope.deleteBoard = (boardId) => {
-    BoardFactory.deleteBoard(boardId)
-    .then( (data) => {
-      fetchBoards(currentUser);
+    let pinDeleteArray = [];
+    PinFactory.getPins(currentUser)
+    .then((pins)=>{
+      // console.log('users pins', pins);
+      Object.keys(pins).forEach((key)=>{
+        if (pins[key].boardid === boardId) {
+          pins[key].id = key;
+          pinDeleteArray.push(pins[key]);
+        }
+      });
+      // console.log('pinDeleteArray', pinDeleteArray);
+      pinDeleteArray.forEach((pinToDelete)=>{
+        PinFactory.deletePin(pinToDelete.id);
+      });
+    })
+    .then(()=>{
+      BoardFactory.deleteBoard(boardId, currentUser)
+      .then( (data) => {
+        fetchBoards(currentUser);
+      });
     });
   };
 });
