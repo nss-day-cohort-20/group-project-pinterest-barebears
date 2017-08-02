@@ -1,5 +1,5 @@
-<div class="container pinContainer ">
-    <div class="pinHeader"
+<div class="container pinContainer">
+    <div class="pinHeader">
         <h1>My Pins</h1>
     </div>
     <!-- Button trigger modal -->
@@ -8,7 +8,7 @@
     </button>
     <div class="card-columns">
         <div>
-            <div class="card masonry" ng-repeat="pin in pins | filter: {boardid: getBoardId()} ">
+            <div class="card masonry" ng-repeat="pin in pins | filter: {boardid: getBoardId()| filter: {title: searchText.searchTerm} ">
                 <div class="pin">
                     <img class="card-img-top img-fluid pinImage" ng-src="{{pin.url}}">
                     <div class="card-block">
@@ -18,6 +18,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
