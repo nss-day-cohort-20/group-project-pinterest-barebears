@@ -19,7 +19,6 @@
 	max-height: 200px;
 }
 
-
 .boardCard, .pinCard {
 	margin-top: 2%;
 	border: 3 px solid black;
@@ -30,20 +29,31 @@
 	text-align: center;
 }
 
-// .masonry {
-// 	column-count:4;
-// }
-
 .addBoardCard {
 	margin-top: 3%;
 	border: 2px solid black;
 }
 
-.pin img {
+img .pinImage {
 	max-width: 400px;
 }
 
-// .pin {
-// 	display: inline-block;
-// }
+.pin {
+	box-shadow:2px 2px 10px black;
+}
+
+.delete-btn, h2.card-text {
+	display: inline-block;
+
+}
+
+.delete-btn {
+	margin-left: 15px;
+	float:right;
+}
+
+.glyphicon {
+	color:red;
+}
+
 
