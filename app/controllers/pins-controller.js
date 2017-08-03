@@ -1,6 +1,6 @@
 'use strict';
 
-pinApp.controller('PinsController', function($scope, PinFactory, $window, UserFactory, $routeParams, FilterFactory){
+pinApp.controller('PinsController', function($scope, PinFactory, BoardFactory, $window, UserFactory, $routeParams, FilterFactory){
 
 	let currentUser = null;
 
@@ -18,6 +18,12 @@ pinApp.controller('PinsController', function($scope, PinFactory, $window, UserFa
 		uid: "",
 		boardid: $routeParams.boardid
 	};
+
+	BoardFactory.getBoard($routeParams.boardid)
+	.then( (boardData)=>{
+		console.log('boardData', boardData);
+		$scope.boardName = boardData.title;
+	});
 
 	$scope.addPin = () => {
 		$scope.pinItem.uid = UserFactory.getUser();

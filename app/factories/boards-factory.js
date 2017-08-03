@@ -15,6 +15,20 @@ pinApp.factory("BoardFactory", function($q, $http, FirebaseUrl) {
     });
   };
 
+  let getBoard = (boardId) => {
+    return $q( (resolve, reject) => {
+      $http.get(`${FirebaseUrl}boards/${boardId}.json`)
+      .then( (boardData) => {
+        console.log('boardData', boardData);
+        resolve(boardData.data);
+      })
+      .catch( (err) => {
+        console.log('oops', err);
+        reject(err);
+      });
+    });
+  };
+
   let postNewBoard = (newBoard) => {
     return $q( (resolve, reject) => {
       $http.post(`${FirebaseUrl}boards.json`,
@@ -44,5 +58,5 @@ pinApp.factory("BoardFactory", function($q, $http, FirebaseUrl) {
     });
   };
 
-  return {getBoards, postNewBoard, deleteBoard};
+  return {getBoards, postNewBoard, deleteBoard, getBoard};
 });
