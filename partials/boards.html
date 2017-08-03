@@ -1,18 +1,21 @@
 <div class=" container boardsContainer">
-  <div class="boardHeader">
-  <h1>My boards</h1>
+  <div class="ghost"></div>
+  <div class="row boardHeader">
+    <div class="col-md-6 boardsHeader">
+      <h1>My Boards</h1>
+    </div>
+    <div class="col-md-6 addABoard">
+
+      <span class="addBoard glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal" value="Add a board"></span><span data-toggle="modal" data-target="#myModal">Add a Board</span>
+    </div>
   </div>
   <div class="row cardColumn">
-    <div class="col-md-4 addBoardCard">
-      <img ng-src="addbutton.png" class="addBoard " data-toggle="modal" data-target="#myModal">
-    </div>
     <div class="col-md-4 boardCard" ng-repeat="board in boards | filter: {title: searchText.searchTerm}">
-      <button class="delete-btn" ng-click="deleteBoard(board.id)">X</button>
-      <div class="boardTitle">{{board.title}}</div>
+      <div class="glyphicon glyphicon-remove col-md-2" ng-click="deleteBoard(board.id)"></div>
       <img class="boardImage" ng-click="loadPins(board.id)" ng-src="{{board.url}}">
+      <div class="boardTitle">{{board.title}}</div>
     </div>
   </div>
-
 
   <!-- Button trigger modal -->
 
@@ -26,17 +29,17 @@
         </div>
         <div class="modal-body">
           <div>
-  					Board Title: <input type="text" ng-model="newBoardItem.title">
-  				</div>
-  				<div>
-  					Image URL: <input type="text" ng-model="newBoardItem.url">
-  				</div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="saveBoardItem()" data-dismiss="modal">Save changes</button>
-        </div>
+           Board Title: <input type="text" ng-model="newBoardItem.title">
+         </div>
+         <div>
+           Image URL: <input type="text" ng-model="newBoardItem.url">
+         </div>
+       </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="saveBoardItem()" data-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>
+</div>
 </div>

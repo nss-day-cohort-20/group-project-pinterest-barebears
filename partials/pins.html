@@ -1,41 +1,44 @@
 <div class="container pinContainer">
-    <div class="pinHeader">
-        <h1>My Pins</h1>
-    </div>
-    <!-- Button trigger modal -->
-    <button ng-type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Add a Pin
-    </button>
-    <div class="row cardColumn">
-        <div class="col-md-4 pinCard" ng-repeat="pin in pins | filter: {boardid: getBoardId()} | filter: {title: searchText.searchTerm}" >
-            <div class="pin">
-                <button class="delete-btn" ng-click="deletePin(pin.id)">X</button>
-                <img class="pinImage" ng-src="{{pin.url}}">
-                <h2>{{pin.title}}</h2>
+  <div class="row boardHeader">
+    <div class="col-md-6 boardsHeader">
+      <h1>Pins</h1>
+  </div>
+  <div class="col-md-6 addABoard">
+
+      <span class="addBoard glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal" value="Add a board"></span><span data-toggle="modal" data-target="#myModal">Add a Pin</span>
+  </div>
+</div>
+
+<div class="row cardColumn">
+    <div class="col-md-4 pinCard" ng-repeat="pin in pins | filter: {boardid: getBoardId()} | filter: {title: searchText.searchTerm}" >
+        <div class="pin">
+        <span class="glyphicon glyphicon-remove pinRemove" ng-click="deletePin(pin.id)"></span>
+         <img class="pinImage" ng-src="{{pin.url}}">
+         <div class="boardTitle">{{pin.title}}</div>
+     </div>
+ </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    Pin Title: <input type="text" ng-model="pinItem.title">
+                </div>
+                <div>
+                    Image URL: <input type="text" ng-model="pinItem.url">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="addPin()" data-dismiss="modal">Save changes</button>
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        Pin Title: <input type="text" ng-model="pinItem.title">
-                    </div>
-                    <div>
-                        Image URL: <input type="text" ng-model="pinItem.url">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="addPin()" data-dismiss="modal">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 </div>
