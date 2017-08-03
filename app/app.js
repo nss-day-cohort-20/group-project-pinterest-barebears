@@ -24,11 +24,14 @@ pinApp.config( ($routeProvider) => {
 		})
 		.when('/pins/:boardid', {
 			templateUrl: 'partials/pins.html',
-			controller: 'PinsController'
+			controller: 'PinsController',
+			resolve: {isAuth}
+
 		})
 		.when('/boards', {
 			templateUrl: 'partials/boards.html',
-			controller: 'BoardsController'
+			controller: 'BoardsController',
+			resolve: {isAuth}
 		})
 		.otherwise('/');
 });
