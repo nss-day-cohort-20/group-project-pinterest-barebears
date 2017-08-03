@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded" ng-controller="NavController">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded " ng-controller="NavController">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -6,14 +6,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" ng-show="isLoggedIn">
-        <a class="nav-link" ng-href="#!/boards">My Boards</a>
-      </li>
-      <li class="nav-item" ng-show="!isLoggedIn">
+    <li class="nav-item" ng-show="!isLoggedIn">
         <a class="nav-link" ng-href="#!/">Login</a>
       </li>
       <li class="nav-item" ng-show="isLoggedIn">
         <a class="nav-link" ng-href="#!/logout" ng-click="logout()">Logout</a>
+      </li>
+      <li class="nav-item" ng-show="isLoggedIn">
+        <a class="nav-link" ng-href="#!/boards">My Boards</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

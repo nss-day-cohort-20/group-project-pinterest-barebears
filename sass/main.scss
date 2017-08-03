@@ -1,10 +1,56 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 2rem;
+}
+
+html, body, .ng-scope, .container-fluid, .row {
+	width: 100%;
+}
+
 .boardsContainer, .pinContainer {
 	text-align: center;
 }
 
+.boardsHeader{
+	text-align: left;
+	margin-top: 50px;
+	font-size: 7em;
+}
+
+.boardsHeader h1{
+	font-size: 7rem;
+	margin-left: 50px;
+}
+
+.addABoard {
+	text-align: right;
+	margin-top: 90px;
+
+}
+
+.navbar {
+	position:fixed;
+	top:1;
+	width:100%;
+	z-index:110;
+	padding-bottom: 10px;
+}
+
 .boardHeader, .pinHeader {
-	padding-bottom: 5%;
-	border-bottom: 2px solid black;
+	box-shadow: 5px 5px 5px #fff;
+	background-color: #212b31;
+	color: white;
+	text-align: left;
+	border-bottom: 2px solid #BD081C;
+	position:fixed;
+	top:0;
+	z-index:100;
+	width: 100%;
+	margin-top: 5%;
+}
+
+.ghost {
+	margin-bottom: 160px;
 }
 
 .boardImage {
@@ -14,6 +60,20 @@
 	max-height: 200px;
 }
 
+.pinRemove {
+	margin-left: 10%;
+	margin-bottom: 10%;
+}
+
+.glyphicon-remove {
+	margin-top: 1%;
+	color: #BD081C
+}
+
+.boardTitle {
+	text-align: center;
+}
+
 .pinImage {
 	max-width: 200px;
 	max-height: 200px;
@@ -21,20 +81,20 @@
 
 
 .boardCard, .pinCard {
-	margin-top: 2%;
-	border: 3 px solid black;
-	color: red;
+	margin-top: 1%;
+	box-shadow: 0 20px 40px -20px;
+	margin-bottom: 10%;
+	text-align: center;
 }
 
 .cardColumn {
 	text-align: center;
+	margin-top: 25%;
 }
 
 
 
 .addBoardCard {
-	margin-top: 3%;
-	border: 2px solid black;
 }
 
 .pin img {
@@ -53,8 +113,11 @@
 }
 
 .loginButton {
+	height: 45px;
+	width: 150px;
 	background-color: #BD081C;
 	color: white;
+	font-size: 2rem;
 }
 
 
